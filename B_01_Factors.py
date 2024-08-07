@@ -1,3 +1,4 @@
+
 # generates headings (e.g: ----- Heading ----- )
 def statement_generator(statement, decoration):
     print(f"\n{decoration * 5} {statement} {decoration * 5}")
@@ -17,10 +18,10 @@ It will also tell you if your number...
 To exit the program, type 'xxx'.
 ''')
 
-
+# checks that the number is a valid integer and is between 1 and 200
 def int_check(question):
 
-    error = f"please input an integer that is between 1 and 200\n"
+    error = f"please input an integer that is between 1 and 200"
 
     while True:
 
@@ -41,8 +42,39 @@ def int_check(question):
         except ValueError:
             print(error)
 
+
+# works out factors, returns sorted list
+def factor(var_to_factor):
+    factors = []
+    factorcount = int(to_factor + 1)
+    squareroot = 0
+    for item in range(1, factorcount):
+
+        division = item / var_to_factor
+        per_student = var_to_factor // item
+        remainder = var_to_factor % item
+        if item * item == var_to_factor:
+            squareroot = item
+
+        if remainder == 0:
+            factors.append(item)
+
+    res = str(factors)[1:-1]
+
+    if len(factors) > 2:
+        if squareroot != 0:
+            print(f"The factors of {to_factor} are: " + res)
+            print(f"{to_factor} is also a perfect square, it's square root is {squareroot}")
+        else:
+            print(f"The factors of {to_factor} are: " + res)
+
+    else:
+        print(f"{to_factor} is a prime number, it's only factors are: " + res)
+
+
 # main routine goes here
 
+statement_generator("Factor Calculator", "•")
 
 # asks if the user wants to see the instructions
 want_instructions = input("\nPress <enter> to read the instructions or any key to continue ")
@@ -57,3 +89,7 @@ while True:
         print("Thank you for using the factor calculator")
         break
     print("You chose to factor", to_factor)
+    if to_factor == 1:
+        print("One is special, it is UNITY (has only one factor)")
+    else:
+        factor(to_factor)
