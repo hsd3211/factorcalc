@@ -18,6 +18,7 @@ It will also tell you if your number...
 To exit the program, type 'xxx'.
 ''')
 
+
 # checks that the number is a valid integer and is between 1 and 200
 def int_check(question):
 
@@ -49,9 +50,6 @@ def factor(var_to_factor):
     factorcount = int(to_factor + 1)
     squareroot = 0
     for item in range(1, factorcount):
-
-        division = item / var_to_factor
-        per_student = var_to_factor // item
         remainder = var_to_factor % item
         if item * item == var_to_factor:
             squareroot = item
@@ -60,14 +58,13 @@ def factor(var_to_factor):
             factors.append(item)
 
     res = str(factors)[1:-1]
-
+    # checks if the factor is a prime number, if it's not then it says a different message
     if len(factors) > 2:
         if squareroot != 0:
             print(f"The factors of {to_factor} are: " + res)
             print(f"{to_factor} is also a perfect square, it's square root is {squareroot}")
         else:
             print(f"The factors of {to_factor} are: " + res)
-
     else:
         print(f"{to_factor} is a prime number, it's only factors are: " + res)
 
